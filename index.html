@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A polished, accessible To-Do List app built for the CodeOrbit Tech Full Stack Development Internship." />
+  <title>CodeOrbit To-Do List</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Favicon inline SVG (no external request) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✅</text></svg>" />
+</head>
+<body>
+
+  <div class="app-wrapper">
+
+    <!-- ===================== HEADER ===================== -->
+    <header class="app-header" role="banner">
+      <div class="brand-logo" aria-hidden="true">
+        <div class="logo-icon">✅</div>
+      </div>
+      <h1>CodeOrbit Tasks</h1>
+      <p class="subtitle">CodeOrbit Tech · Full Stack Development Internship</p>
+    </header>
+
+    <!-- ===================== INPUT CARD ===================== -->
+    <section class="input-card" aria-label="Add new task">
+      <label for="task-input">New Task</label>
+      <div class="input-row">
+        <input
+          type="text"
+          id="task-input"
+          name="task-input"
+          placeholder="What do you need to do?"
+          maxlength="300"
+          autocomplete="off"
+          spellcheck="true"
+          aria-required="true"
+          aria-describedby="input-error"
+        />
+        <button id="add-btn" class="btn btn-primary" aria-label="Add task">
+          <span aria-hidden="true">＋</span> Add Task
+        </button>
+      </div>
+      <p id="input-error" class="input-error" role="alert" aria-live="polite"></p>
+    </section>
+
+    <!-- ===================== STATS + FILTER BAR ===================== -->
+    <div class="stats-bar" role="status" aria-label="Task summary and filter">
+      <div class="stats-pills" aria-live="polite">
+        <span id="stat-total"   class="pill pill-total">Total: 0</span>
+        <span id="stat-pending" class="pill pill-pending">Pending: 0</span>
+        <span id="stat-done"    class="pill pill-done">Done: 0</span>
+      </div>
+      <div class="filter-group" role="group" aria-label="Filter tasks">
+        <button class="filter-btn active" data-filter="all"     aria-pressed="true">All</button>
+        <button class="filter-btn"        data-filter="pending" aria-pressed="false">Pending</button>
+        <button class="filter-btn"        data-filter="done"    aria-pressed="false">Done</button>
+      </div>
+    </div>
+
+    <!-- ===================== TASK LIST ===================== -->
+    <main>
+      <ul
+        id="task-list"
+        aria-label="Task list"
+        aria-live="polite"
+      ></ul>
+    </main>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="app-footer" role="contentinfo">
+      <p>Built with ❤️ for <strong>CodeOrbit Tech</strong> · Data saved locally in your browser</p>
+    </footer>
+
+  </div>
+
+  <script src="js/script.js"></script>
+  <!-- user content rendered via JS textContent -->
+</body>
+</html>
